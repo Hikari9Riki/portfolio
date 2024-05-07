@@ -1,3 +1,11 @@
-body {
-    margin: 35%;
-}
+@font-face {
+    font-family: 'Weirdo';
+    src: url(/Media/font/JetBrainsMono-Regular.woff2);
+ }
+
+ 
+
+ @font-face {
+    font-family: 'Sans';
+    src: url(/Media/font/KumbhSans-Regular.ttf);
+ }
