@@ -1,216 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style.css">
-<style>
-body {
-  font-family: "Lato", sans-serif;
-}
-
-.sidenav {
-  height: 100%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #E5A4A4;
-  padding-top: 25px;
-  width:280px;
-  text-align: center;
-  
-
-.profile {
-    height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  background-image: url("./Media/profile.jpeg");
-  object-fit: cover;
-}
-
-img.profile {
-    object-fit: cover;
-  }
-
-}
-.main{
-    margin-Left: 280px;
-}
-
-.sidenav a {
-    padding-top: 20px;
-  text-decoration: none;
-  font-family: 'Weirdo';
-  font-size: 25px;
-  color: black;
-  display: block;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.home{
-    margin-top: -10px;
-}
-.home b.t{
-    font-size: 60px;
-}
-
-.home b.p{
-    font-size: 20px;
-    
-}
-.home a{
-    font-size: 20px;
-    color:crimson;
-}
-
-.home p{
-    font-size: 25px;
-    font-family: 'Sans';
-    line-height: 35px;
-    letter-spacing: 2px;
-    color: #969494;
-}
-
-.container{
-    margin-left: 30px;
-    margin-right: 70px;
-}
-
-.dot {
-    
-    height: 18px;
-    width: 18px;
-    border-radius: 50%;
-    display: inline-block;
-    background-color: #E5A4A4;
-  }
-
-  .container-social {
-    margin-top: 120px;
-    margin-left: 90px;
-    border-radius: 50%;
-    display: inline-block;
-  }
-
-img.social {
-    margin-top: 20px;
-    margin-right: 10px;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Base Calculator and Converter</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 800px; margin: auto; padding: 20px; }
+        header, footer { text-align: center; margin: 20px 0; }
+        .section { margin: 20px 0; }
+        label { display: inline-block; width: 150px; margin-bottom: 10px; }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Welcome to Number Base Calculator & Converter</h1>
+            <p>Please choose an option below to proceed.</p>
+        </header>
 
-<div id="mySidenav" class="sidenav">
-    <center>
-        <img class="profile" src="./Media/profile.jpeg" alt="">
-        <a href="#home">HOME</a>
-        <a href="#home">ABOUT</a>
-        <a href="#experience">EXPERIENCE</a>
-        <a href="#education">EDUCATION</a>
-        <a href="#project">PROJECT</a>
-        <a href="#award">AWARD</a>
-        <a href="#skill">SKILL</a>
-    </center>
-</div>
+        <!-- Choose Box -->
+        <section class="section" id="chooseBox">
+            <h2>Select Operation</h2>
+            <button onclick="showSection('calculation')">Calculation</button>
+            <button onclick="showSection('convert')">Convert</button>
+        </section>
 
-<div class="main">
-  <section id="home">
-    <div class="home">
-        <b class="t">TENGKU</b> <b class="t" style="color: #E5A4A4;">MUHAMMAD</b> <b class="t">RIDHWAN</b>
-        <b class="p">TERENGGANU</b> <span class="dot"></span> <b class="p" >MALAYSIA</b> <span class="dot"></span> <a class="p">RIDHWAN@RIDHWAN.TECH</a>
-        <div class="container">
-            <p>I'm a Computer Engineering student with skills in multiple programming languages, including PHP, Python, Visual Basic, and C++. I aim to become a software engineer and have experience working with AWS services like EC2 and Route 53. My final year project involved building a system using the Django framework, where I learned about backend development, RESTful APIs, and frontend design. I enjoy exploring cloud technologies and applying my skills to real-world projects.</p>
-            <a href="https://linkedin.com/in/tengku-muhammad-ridhwan-964295284"><img class="social" src="./Media/linkedIn.png" alt=""></a>
-            <img class="social" src="./Media/Github.png" alt="">
-            <img class="social" src="./Media/Instagram.png" alt="">
-            <img class="social" src="./Media/Facebook.png" alt="">
+        <!-- Calculation Section -->
+        <section class="section" id="calculation" style="display: none;">
+            <h2>Calculation</h2>
+            <label for="num1">Input Number 1:</label>
+            <input type="text" id="num1" placeholder="Enter number">
+            <select id="baseNum1">
+                <option value="2">Binary</option>
+                <option value="8">Octal</option>
+                <option value="10">Decimal</option>
+                <option value="16">Hexadecimal</option>
+            </select><br>
 
+            <label for="num2">Input Number 2:</label>
+            <input type="text" id="num2" placeholder="Enter number">
+            <select id="baseNum2">
+                <option value="2">Binary</option>
+                <option value="8">Octal</option>
+                <option value="10">Decimal</option>
+                <option value="16">Hexadecimal</option>
+            </select><br>
+
+            <label for="operation">Choose Operation:</label>
+            <select id="operation">
+                <option value="add">+</option>
+                <option value="subtract">-</option>
+                <option value="multiply">×</option>
+                <option value="divide">÷</option>
+            </select><br>
+
+            <label for="outputBase">Output Base:</label>
+            <select id="outputBase">
+                <option value="2">Binary</option>
+                <option value="8">Octal</option>
+                <option value="10">Decimal</option>
+                <option value="16">Hexadecimal</option>
+            </select><br>
+
+            <button onclick="performCalculation()">Calculate</button>
+            <p>Result: <span id="calcResult">-</span></p>
+        </section>
+
+        <!-- Convert Section -->
+        <section class="section" id="convert" style="display: none;">
+            <h2>Convert</h2>
+            <label for="convertInput">Input Number:</label>
+            <input type="text" id="convertInput" placeholder="Enter number"><br>
+
+            <label for="convertFrom">Convert From:</label>
+            <select id="convertFrom">
+                <option value="2">Binary</option>
+                <option value="8">Octal</option>
+                <option value="10">Decimal</option>
+                <option value="16">Hexadecimal</option>
+            </select><br>
+
+            <label for="convertTo">Convert To:</label>
+            <select id="convertTo">
+                <option value="2">Binary</option>
+                <option value="8">Octal</option>
+                <option value="10">Decimal</option>
+                <option value="16">Hexadecimal</option>
+            </select><br>
+
+            <button onclick="performConversion()">Convert</button>
+            <p>Conversion Result: <span id="convertResult">-</span></p>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Credits: Developed by YourName</p>
+            <p>Est. 2023 | Contact: youremail@example.com</p>
+        </footer>
     </div>
-    
-  </section>
 
-  <section id="experience">
-    <div class="home">
-        <b class="t">TENGKU</b> <b class="t" style="color: #E5A4A4;">MUHAMMAD</b> <b class="t">RIDHWAN</b>
-        <b class="p">TERENGGANU</b> <span class="dot"></span> <b class="p" >MALAYSIA</b> <span class="dot"></span> <a class="p">RIDHWAN@RIDHWAN.TECH</a>
-        <div class="container">
-            <p>I'm a Computer Engineering student with skills in multiple programming languages, including PHP, Python, Visual Basic, and C++. I aim to become a software engineer and have experience working with AWS services like EC2 and Route 53. My final year project involved building a system using the Django framework, where I learned about backend development, RESTful APIs, and frontend design. I enjoy exploring cloud technologies and applying my skills to real-world projects.</p>
-            <a href="https://linkedin.com/in/tengku-muhammad-ridhwan-964295284"><img class="social" src="./Media/linkedIn.png" alt=""></a>
-            <a href="https://github.com/Hikari9Riki"><img class="social" src="./Media/Github.png" alt=""></a>
-            <a href="https://www.instagram.com/tg_rdhwn/"><img class="social" src="./Media/Instagram.png" alt=""></a>
-            <a href="https://www.facebook.com/profile.php?id=100016800335310&viewas=&show_switched_toast=false&show_switched_tooltip=false&is_tour_dismissed=false&is_tour_completed=false&show_podcast_settings=false&show_community_review_changes=false&should_open_composer=false&badge_type=NEW_MEMBER&show_community_rollback_toast=false&show_community_rollback=false&show_follower_visibility_disclosure=false&bypass_exit_warning=true"><img class="social" src="./Media/Facebook.png" alt=""></a>
+    <!-- JavaScript -->
+    <script>
+        function showSection(section) {
+            document.getElementById('calculation').style.display = 'none';
+            document.getElementById('convert').style.display = 'none';
+            document.getElementById(section).style.display = 'block';
+        }
 
-    </div>
-  </section>
+        function performCalculation() {
+            const num1 = parseInt(document.getElementById('num1').value, document.getElementById('baseNum1').value);
+            const num2 = parseInt(document.getElementById('num2').value, document.getElementById('baseNum2').value);
+            const operation = document.getElementById('operation').value;
+            const outputBase = document.getElementById('outputBase').value;
+            let result;
 
-  <section id="education">
-    <div class="home">
-        <b class="t">TENGKU</b> <b class="t" style="color: #E5A4A4;">MUHAMMAD</b> <b class="t">RIDHWAN</b>
-        <b class="p">TERENGGANU</b> <span class="dot"></span> <b class="p" >MALAYSIA</b> <span class="dot"></span> <a class="p">RIDHWAN@RIDHWAN.TECH</a>
-        <div class="container">
-            <p>I'm a Computer Engineering student with skills in multiple programming languages, including PHP, Python, Visual Basic, and C++. I aim to become a software engineer and have experience working with AWS services like EC2 and Route 53. My final year project involved building a system using the Django framework, where I learned about backend development, RESTful APIs, and frontend design. I enjoy exploring cloud technologies and applying my skills to real-world projects.</p>
-            <a href="https://linkedin.com/in/tengku-muhammad-ridhwan-964295284"><img class="social" src="./Media/linkedIn.png" alt=""></a>
-            <img class="social" src="./Media/Github.png" alt="">
-            <img class="social" src="./Media/Instagram.png" alt="">
-            <img class="social" src="./Media/Facebook.png" alt="">
+            if (isNaN(num1) || isNaN(num2)) {
+                alert('Please enter valid numbers');
+                return;
+            }
 
-    </div>
-  </section>
+            switch (operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    if (num2 === 0) {
+                        alert('Cannot divide by zero');
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+                default:
+                    alert('Invalid operation');
+                    return;
+            }
 
-  <section id="project">
-    <div class="home">
-        <b class="t">TENGKU</b> <b class="t" style="color: #E5A4A4;">MUHAMMAD</b> <b class="t">RIDHWAN</b>
-        <b class="p">TERENGGANU</b> <span class="dot"></span> <b class="p" >MALAYSIA</b> <span class="dot"></span> <a class="p">RIDHWAN@RIDHWAN.TECH</a>
-        <div class="container">
-            <p>I'm a Computer Engineering student with skills in multiple programming languages, including PHP, Python, Visual Basic, and C++. I aim to become a software engineer and have experience working with AWS services like EC2 and Route 53. My final year project involved building a system using the Django framework, where I learned about backend development, RESTful APIs, and frontend design. I enjoy exploring cloud technologies and applying my skills to real-world projects.</p>
-            <a href="https://linkedin.com/in/tengku-muhammad-ridhwan-964295284"><img class="social" src="./Media/linkedIn.png" alt=""></a>
-            <img class="social" src="./Media/Github.png" alt="">
-            <img class="social" src="./Media/Instagram.png" alt="">
-            <img class="social" src="./Media/Facebook.png" alt="">
+            document.getElementById('calcResult').innerText = result.toString(outputBase);
+        }
 
-    </div>
-  </section>
+        function performConversion() {
+            const inputNum = parseInt(document.getElementById('convertInput').value, document.getElementById('convertFrom').value);
+            const convertToBase = document.getElementById('convertTo').value;
 
-  <section id="award">
-    <div class="home">
-        <b class="t">TENGKU</b> <b class="t" style="color: #E5A4A4;">MUHAMMAD</b> <b class="t">RIDHWAN</b>
-        <b class="p">TERENGGANU</b> <span class="dot"></span> <b class="p" >MALAYSIA</b> <span class="dot"></span> <a class="p">RIDHWAN@RIDHWAN.TECH</a>
-        <div class="container">
-            <p>I'm a Computer Engineering student with skills in multiple programming languages, including PHP, Python, Visual Basic, and C++. I aim to become a software engineer and have experience working with AWS services like EC2 and Route 53. My final year project involved building a system using the Django framework, where I learned about backend development, RESTful APIs, and frontend design. I enjoy exploring cloud technologies and applying my skills to real-world projects.</p>
-            <a href="https://linkedin.com/in/tengku-muhammad-ridhwan-964295284"><img class="social" src="./Media/linkedIn.png" alt=""></a>
-            <img class="social" src="./Media/Github.png" alt="">
-            <img class="social" src="./Media/Instagram.png" alt="">
-            <img class="social" src="./Media/Facebook.png" alt="">
+            if (isNaN(inputNum)) {
+                alert('Please enter a valid number');
+                return;
+            }
 
-    </div>
-  </section>
-
-  <section class="skill">
-    <div class="home">
-        <b class="t">TENGKU</b> <b class="t" style="color: #E5A4A4;">MUHAMMAD</b> <b class="t">RIDHWAN</b>
-        <b class="p">TERENGGANU</b> <span class="dot"></span> <b class="p" >MALAYSIA</b> <span class="dot"></span> <a class="p">RIDHWAN@RIDHWAN.TECH</a>
-        <div class="container">
-            <p>I'm a Computer Engineering student with skills in multiple programming languages, including PHP, Python, Visual Basic, and C++. I aim to become a software engineer and have experience working with AWS services like EC2 and Route 53. My final year project involved building a system using the Django framework, where I learned about backend development, RESTful APIs, and frontend design. I enjoy exploring cloud technologies and applying my skills to real-world projects.</p>
-            <a href="https://linkedin.com/in/tengku-muhammad-ridhwan-964295284"><img class="social" src="./Media/linkedIn.png" alt=""></a>
-            <img class="social" src="./Media/Github.png" alt="">
-            <img class="social" src="./Media/Instagram.png" alt="">
-            <img class="social" src="./Media/Facebook.png" alt="">
-
-    </div>
-  </section>
-</div>
-
-
+            document.getElementById('convertResult').innerText = inputNum.toString(convertToBase);
+        }
+    </script>
 </body>
-</html> 
+</html>
