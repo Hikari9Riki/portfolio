@@ -1,291 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Base Calculator and Converter</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-        header, footer { text-align: center; margin: 20px 0; }
-        .section { margin: 20px 0; }
-        label { display: inline-block; width: 150px; margin-bottom: 10px; }
-    </style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #E5A4A4;
+  padding-top: 25px;
+  width:280px;
+  text-align: center;
+  
+
+.profile {
+    height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-image: url("./Media/profile.png");
+  object-fit: cover;
+}
+
+img.profile {
+    object-fit: cover;
+  }
+
+}
+.main{
+    margin-Left: 280px;
+}
+
+.sidenav a {
+    padding-top: 20px;
+  text-decoration: none;
+  font-family: 'Weirdo';
+  font-size: 25px;
+  color: black;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.home{
+    margin-top: -10px;
+}
+.home b.t{
+    font-size: 60px;
+}
+
+.home b.p{
+    font-size: 20px;
+    
+}
+.home a{
+    font-size: 20px;
+    color:crimson;
+}
+
+.home p{
+    font-size: 25px;
+    font-family: 'Sans';
+    line-height: 35px;
+    letter-spacing: 2px;
+    color: #969494;
+}
+
+.container{
+    margin-left: 30px;
+    margin-right: 70px;
+}
+
+.dot {
+    
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #E5A4A4;
+  }
+
+  .container-social {
+    margin-top: 120px;
+    margin-left: 90px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+img.social {
+    margin-top: 20px;
+    margin-right: 10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <h1>Welcome to Number Base Calculator & Converter</h1>
-            <p>Please choose an option below to proceed.</p>
-        </header>
 
-        <!-- Choose Box -->
-        <section class="section" id="chooseBox">
-            <h2>Select Operation</h2>
-            <button onclick="showSection('calculation')">Calculation</button>
-            <button onclick="showSection('convert')">Convert</button>
-        </section>
+<div id="mySidenav" class="sidenav">
+    <center>
+        <img class="profile" src="./Media/profile.png" alt="">
+        <a href="#home">HOME</a>
+        <a href="#home">ABOUT</a>
+        <a href="#experience">EXPERIENCE</a>
+        <a href="#education">EDUCATION</a>
+        <a href="#project">PROJECT</a>
+        <a href="#award">AWARD</a>
+        <a href="#skill">SKILL</a>
+    </center>
+</div>
 
-        <!-- Calculation Section -->
-        <section class="section" id="calculation" style="display: none;">
-            <h2>Calculation</h2>
-            <label for="num1">Input Number 1:</label>
-            <input type="text" id="num1" placeholder="Enter number">
-            <select id="baseNum1">
-                <option value="2">Binary</option>
-                <option value="8">Octal</option>
-                <option value="10">Decimal</option>
-                <option value="16">Hexadecimal</option>
-            </select><br>
+<div class="main">
+  <section id="home">
+    <div class="home">
+        <b class="t">TENGKU</b> <b class="t" style="color: #E5A4A4;">MUHAMMAD</b> <b class="t">RIDHWAN</b>
+        <b class="p">TERENGGANU</b> <span class="dot"></span> <b class="p" >MALAYSIA</b> <span class="dot"></span> <a class="p">RIDHWAN@RIDHWAN.TECH</a>
+        <div class="container">
+            <p>I'm a Computer Engineering student with skills in multiple programming languages, including PHP, Python, Visual Basic, and C++. I aim to become a software engineer and have experience working with AWS services like EC2 and Route 53. My final year project involved building a system using the Django framework, where I learned about backend development, RESTful APIs, and frontend design. I enjoy exploring cloud technologies and applying my skills to real-world projects.</p>
+            <a href="https://linkedin.com/in/tengku-muhammad-ridhwan-964295284"><img class="social" src="./Media/linkedIn.png" alt=""></a>
+            <img class="social" src="./Media/Github.png" alt="">
+            <img class="social" src="./Media/Instagram.png" alt="">
+            <img class="social" src="./Media/Facebook.png" alt="">
 
-            <label for="num2">Input Number 2:</label>
-            <input type="text" id="num2" placeholder="Enter number">
-            <select id="baseNum2">
-                <option value="2">Binary</option>
-                <option value="8">Octal</option>
-                <option value="10">Decimal</option>
-                <option value="16">Hexadecimal</option>
-            </select><br>
-
-            <label for="operation">Choose Operation:</label>
-            <select id="operation">
-                <option value="add">+</option>
-                <option value="subtract">-</option>
-                <option value="multiply">×</option>
-                <option value="divide">÷</option>
-            </select><br>
-
-            <label for="outputBase">Output Base:</label>
-            <select id="outputBase">
-                <option value="2">Binary</option>
-                <option value="8">Octal</option>
-                <option value="10">Decimal</option>
-                <option value="16">Hexadecimal</option>
-            </select><br>
-
-            <button onclick="operation()">Calculate</button>
-            <p>Result: <span id="calcResult">-</span></p>
-        </section>
-
-        <!-- Convert Section -->
-        <section class="section" id="convert" style="display: none;">
-            <h2>Convert</h2>
-            <label for="convertInput">Input Number:</label>
-            <input type="text" id="convertInput" placeholder="Enter number"><br>
-
-            <label for="convertFrom">Convert From:</label>
-            <select id="convertFrom">
-                <option value="2">Binary</option>
-                <option value="8">Octal</option>
-                <option value="10">Decimal</option>
-                <option value="16">Hexadecimal</option>
-            </select><br>
-
-            <label for="convertTo">Convert To:</label>
-            <select id="convertTo">
-                <option value="2">Binary</option>
-                <option value="8">Octal</option>
-                <option value="10">Decimal</option>
-                <option value="16">Hexadecimal</option>
-            </select><br>
-
-            <button onclick="converting()">Convert</button>
-            <p>Conversion Result: <span id="convertResult">-</span></p>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <p>Credits: Developed by YourName</p>
-            <p>Est. 2023 | Contact: youremail@example.com</p>
-        </footer>
     </div>
+    
+  </section>
 
-    <!-- JavaScript -->
-    <script>
-        function showSection(section) {
-            document.getElementById('calculation').style.display = 'none';
-            document.getElementById('convert').style.display = 'none';
-            document.getElementById(section).style.display = 'block';
-        }
+  <section id="experience">
+    <div class="home">
+        <b class="t">TENGKU</b> <b class="t" style="color: #E5A4A4;">MUHAMMAD</b> <b class="t">RIDHWAN</b>
+        <b class="p">TERENGGANU</b> <span class="dot"></span> <b class="p" >MALAYSIA</b> <span class="dot"></span> <a class="p">RIDHWAN@RIDHWAN.TECH</a>
+        <div class="container">
+            <p>I'm a Computer Engineering student with skills in multiple programming languages, including PHP, Python, Visual Basic, and C++. I aim to become a software engineer and have experience working with AWS services like EC2 and Route 53. My final year project involved building a system using the Django framework, where I learned about backend development, RESTful APIs, and frontend design. I enjoy exploring cloud technologies and applying my skills to real-world projects.</p>
+            <a href="https://linkedin.com/in/tengku-muhammad-ridhwan-964295284"><img class="social" src="./Media/linkedIn.png" alt=""></a>
+            <a href="https://github.com/Hikari9Riki"><img class="social" src="./Media/Github.png" alt=""></a>
+            <a href="https://www.instagram.com/tg_rdhwn/"><img class="social" src="./Media/Instagram.png" alt=""></a>
+            <a href="https://www.facebook.com/profile.php?id=100016800335310&viewas=&show_switched_toast=false&show_switched_tooltip=false&is_tour_dismissed=false&is_tour_completed=false&show_podcast_settings=false&show_community_review_changes=false&should_open_composer=false&badge_type=NEW_MEMBER&show_community_rollback_toast=false&show_community_rollback=false&show_follower_visibility_disclosure=false&bypass_exit_warning=true"><img class="social" src="./Media/Facebook.png" alt=""></a>
 
-        function operation() {
-            let num1 = document.getElementById('num1').value;
-            let num2 = document.getElementById('num2').value;
-            let num1Base = document.getElementById('baseNum1').value;
-            let num2Base = document.getElementById('baseNum2').value;
-            const what2Do = document.getElementById('operation').value;
-            const toBase = document.getElementById('outputBase').value;
+    </div>
+  </section>
 
-            num1 = anyBase2Decimal(num1, num1Base);
-            console.log(num1)
-            num2 = anyBase2Decimal(num2,num2Base);
-            console.log(num2)
+  <section id="education">
+    <div class="home">
+        <b class="t">TENGKU</b> <b class="t" style="color: #E5A4A4;">MUHAMMAD</b> <b class="t">RIDHWAN</b>
+        <b class="p">TERENGGANU</b> <span class="dot"></span> <b class="p" >MALAYSIA</b> <span class="dot"></span> <a class="p">RIDHWAN@RIDHWAN.TECH</a>
+        <div class="container">
+            <p>I'm a Computer Engineering student with skills in multiple programming languages, including PHP, Python, Visual Basic, and C++. I aim to become a software engineer and have experience working with AWS services like EC2 and Route 53. My final year project involved building a system using the Django framework, where I learned about backend development, RESTful APIs, and frontend design. I enjoy exploring cloud technologies and applying my skills to real-world projects.</p>
+            <a href="https://linkedin.com/in/tengku-muhammad-ridhwan-964295284"><img class="social" src="./Media/linkedIn.png" alt=""></a>
+            <img class="social" src="./Media/Github.png" alt="">
+            <img class="social" src="./Media/Instagram.png" alt="">
+            <img class="social" src="./Media/Facebook.png" alt="">
 
-            if (isNaN(num1) || isNaN(num2)) {
-                alert('Please enter valid numbers');
-                return;
-            }
+    </div>
+  </section>
 
-            let result = 0;
-            
-            switch (what2Do) {
-                case 'add':
-                    result = num1 + num2;
-                    break;
-                case 'subtract':
-                    result = num1 - num2;
-                    break;
-                case 'multiply':
-                    result = num1 * num2;
-                    break;
-                case 'divide':
-                    if (num2 === 0) {
-                        alert('Cannot divide by zero');
-                        return;
-                    }
-                    result = num1 / num2;
-                    break;
-                default:
-                    alert('Invalid operation');
-                    return;
-            }
+  <section id="project">
+    <div class="home">
+        <b class="t">TENGKU</b> <b class="t" style="color: #E5A4A4;">MUHAMMAD</b> <b class="t">RIDHWAN</b>
+        <b class="p">TERENGGANU</b> <span class="dot"></span> <b class="p" >MALAYSIA</b> <span class="dot"></span> <a class="p">RIDHWAN@RIDHWAN.TECH</a>
+        <div class="container">
+            <p>I'm a Computer Engineering student with skills in multiple programming languages, including PHP, Python, Visual Basic, and C++. I aim to become a software engineer and have experience working with AWS services like EC2 and Route 53. My final year project involved building a system using the Django framework, where I learned about backend development, RESTful APIs, and frontend design. I enjoy exploring cloud technologies and applying my skills to real-world projects.</p>
+            <a href="https://linkedin.com/in/tengku-muhammad-ridhwan-964295284"><img class="social" src="./Media/linkedIn.png" alt=""></a>
+            <img class="social" src="./Media/Github.png" alt="">
+            <img class="social" src="./Media/Instagram.png" alt="">
+            <img class="social" src="./Media/Facebook.png" alt="">
 
-            console.log(result)
-            
-            console.log(Decimal2AnyBase(result,toBase))
-            document.getElementById('calcResult').innerText = Decimal2AnyBase(result,toBase);
+    </div>
+  </section>
 
-        }
+  <section id="award">
+    <div class="home">
+        <b class="t">TENGKU</b> <b class="t" style="color: #E5A4A4;">MUHAMMAD</b> <b class="t">RIDHWAN</b>
+        <b class="p">TERENGGANU</b> <span class="dot"></span> <b class="p" >MALAYSIA</b> <span class="dot"></span> <a class="p">RIDHWAN@RIDHWAN.TECH</a>
+        <div class="container">
+            <p>I'm a Computer Engineering student with skills in multiple programming languages, including PHP, Python, Visual Basic, and C++. I aim to become a software engineer and have experience working with AWS services like EC2 and Route 53. My final year project involved building a system using the Django framework, where I learned about backend development, RESTful APIs, and frontend design. I enjoy exploring cloud technologies and applying my skills to real-world projects.</p>
+            <a href="https://linkedin.com/in/tengku-muhammad-ridhwan-964295284"><img class="social" src="./Media/linkedIn.png" alt=""></a>
+            <img class="social" src="./Media/Github.png" alt="">
+            <img class="social" src="./Media/Instagram.png" alt="">
+            <img class="social" src="./Media/Facebook.png" alt="">
 
-        function converting() {
-            const inputNum = document.getElementById('convertInput').value;
-            const InputBase = document.getElementById('convertFrom').value;
-            const convertToBase = document.getElementById('convertTo').value;
+    </div>
+  </section>
 
-            const inputDecimal = anyBase2Decimal(inputNum,InputBase);
-            const result = Decimal2AnyBase(inputDecimal,convertToBase);
+  <section class="skill">
+    <div class="home">
+        <b class="t">TENGKU</b> <b class="t" style="color: #E5A4A4;">MUHAMMAD</b> <b class="t">RIDHWAN</b>
+        <b class="p">TERENGGANU</b> <span class="dot"></span> <b class="p" >MALAYSIA</b> <span class="dot"></span> <a class="p">RIDHWAN@RIDHWAN.TECH</a>
+        <div class="container">
+            <p>I'm a Computer Engineering student with skills in multiple programming languages, including PHP, Python, Visual Basic, and C++. I aim to become a software engineer and have experience working with AWS services like EC2 and Route 53. My final year project involved building a system using the Django framework, where I learned about backend development, RESTful APIs, and frontend design. I enjoy exploring cloud technologies and applying my skills to real-world projects.</p>
+            <a href="https://linkedin.com/in/tengku-muhammad-ridhwan-964295284"><img class="social" src="./Media/linkedIn.png" alt=""></a>
+            <img class="social" src="./Media/Github.png" alt="">
+            <img class="social" src="./Media/Instagram.png" alt="">
+            <img class="social" src="./Media/Facebook.png" alt="">
 
-            document.getElementById('convertResult').innerText = result;
-
-
-        }
-
-        function anyBase2Decimal(num, fromBase) {   
-
-            let input = String(num);
-
-            //check if the num is negative
-            let minus = false;
-                    
-                    if (input[0] == "-") {
-                        minus = true;
-                        input = input.split('');
-                        input[0] = "";
-                        input = input.join('');
-                    }
-
-            // Split input into integer and fractional parts
-            const parts = input.split(".");
-            const integerPart = parts[0];               // ingeter part
-            const fractionalPart = parts[1] || "0";     // fractional part
-
-            const intreverse = integerPart.split('').reverse().join(''); // to make the integer position reverse
-            let DecInt = 0;
-            let Decfrac = 0;
-            let result= '';
-            console.log(intreverse);
-
-            try {
-                // Convert integer part
-                for (let x = 0; x < integerPart.length; x++) {                              // using total += (N(x) * B^x)........ 
-                    
-                    DecInt += parseInt(intreverse[x], fromBase) * Math.pow(fromBase, x);    //the number multiply witth the the base^position.
-                    
-                    //parseInt to change the string to number type according to base form. if it find the string is A so it will be 10.
-                }       
+    </div>
+  </section>
+</div>
 
 
-                // Convert fractional part
-                for (let y = 0; y < fractionalPart.length; y++) {                       // using total += (N(x) * B^x)........
-                    
-                    const fractionalDigit = parseInt(fractionalPart[y], fromBase);      // create new varible t make sure next line no gonna be long
-                    Decfrac += fractionalDigit * Math.pow(fromBase, -(y + 1));          // why -( y+1 )? to get power negative and y for array in fractianalDigit and + 1 because power start from -1
-                }
-
-            } catch (error) {
-                document.getElementById('convertResult').innerText = "Error: " + error.message;
-            }
-
-            result = DecInt + Decfrac;
-
-            if (minus == true){
-                result = -(result);
-            }
-
-            return result;
-            }
-
-        function Decimal2AnyBase(num,ConvertTo) {
-
-            let input = String(num);
-            console.log(input)
-
-            //check if the num is negative
-            let minus = false;
-                    
-                    if (input[0] == "-") {
-                        minus = true;               //set the number is minus
-                        input = input.split('');    //split the number to array for each length
-                        input[0] = "";              // replace '-' with ''
-                        input = input.join('');     //merge the number array back
-                    }
-
-            // Split input into integer and fractional parts
-            const parts = input.split(".");
-            const integerPart = parts[0];               // ingeter part
-            const fractionalPart = parts[1] || "0";     // fractional part
-            let DecInt = parseInt(integerPart, 10);
-            let Decfrac = "0." + String(parseInt(fractionalPart, 10));
-            let result= '';
-            console.log(fractionalPart)
-            console.log(Decfrac)
-
-            try {
-
-                while ( DecInt > 0 ) { // using DecIntAfter = DecInt - ( DecInt - ( DecInt % B ) 
-                    const remainder = DecInt % ConvertTo;
-                    result = ( remainder < 10 ? remainder : String.fromCharCode(remainder + 55) ) + result;
-                    DecInt = Math.floor( DecInt / ConvertTo ); 
-                }
-
-                
-                if (Decfrac >  0){
-                    let limit = 0;
-                    result = result + '.'
-
-                    while ( Decfrac > 0 && limit < 10 ) { // using 
-                    Decfrac = Decfrac * ConvertTo;
-                    const remainder = Math.floor(Decfrac);
-                    result = result + ( remainder < 10 ? remainder : String.fromCharCode(remainder + 55) ) ;
-                    Decfrac = Decfrac - remainder;
-                    }
-                }
-
-            } catch (error) {
-
-                document.getElementById('convertResult').innerText = "Error: " + error.message;
-
-            }
-
-            if (minus == true){
-                result = -(result) ;     //add the '-' back if negative number
-            }
-
-            return result;
-
-            }
-
-    </script>
 </body>
-</html>
+</html> 
